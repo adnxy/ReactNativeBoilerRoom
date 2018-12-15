@@ -1,13 +1,50 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { KeyboardAvoidingView, View } from 'react-native';
 import TextButton from '../../components/TextButton';
-import { FONT_AVENIR_BOOK } from '../../assets/fonts/fonts';
-import { COLOR_NAVIGATION_BLUE } from '../../assets/colors/colors';
+import TextField from '../../components/TextField';
+import styles from '../../styles/login-styles';
 
 export default class LoginScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      password: '',
+      errorMessage: '',
+    };
+  }
+
+  setErrorMessage = (errorMessage) => {
+    this.setState({ errorMessage });
+  }
+
   render() {
     return (
-      <View style={styles.container}>
+      <View>
+        <TextField 
+         text="email/username"
+         placeholder="oliver@"
+         autoCapitalize="words"
+         autoFocus
+         value={this.state.email}
+         onChangeText={email => this.setState({ email })}
+         containerInputStyle={styles.containerInputEmail}
+         titleInputStyle={styles.titleInputStyle}
+         textInputStyle={styles.textInputStyle}
+         returnKeyType="next"
+        />
+         <TextField 
+         text="password"
+         placeholder="******"
+         autoFocus
+         secureTextEntry
+         value={this.state.password}
+         onChangeText={password => this.setState({ password })}
+         containerInputStyle={styles.containerInputPassword}
+         titleInputStyle={styles.titleInputStyle}
+         textInputStyle={styles.textInputStyle}
+         returnKeyType="done"        
+         />
         <TextButton
           onPress={() => this.props.navigation.navigate('Login')}
           title="Registration"
@@ -20,43 +57,7 @@ export default class LoginScreen extends React.Component {
           buttonStyle={styles.loginButton}
           titleStyle={styles.buttonTitle}
           />
-      </View>
+          </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    marginBottom: '10%'
-  },
-
-  registrationButton: {
-    backgroundColor: COLOR_NAVIGATION_BLUE,
-    width: 320,
-    height: 47,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 8,
-  },
-
-  loginButton: {
-    backgroundColor: COLOR_NAVIGATION_BLUE,
-    width: 320,
-    height: 47,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 8,
-    marginTop: '5%',
-  },
-
-  buttonTitle: {
-    fontFamily: FONT_AVENIR_BOOK,
-    fontSize: 18,
-    color: 'white',
-  },
-
-});

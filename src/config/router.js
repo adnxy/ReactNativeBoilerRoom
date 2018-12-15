@@ -13,6 +13,7 @@ import { COLOR_NAVIGATION_BLUE, COLOR_NAVIGATION_GRAY } from '../assets/colors/c
 import { FONT_AVENIR_MEDIUM } from '../assets/fonts/fonts';
 
 const Router = createStackNavigator(
+   /* App screens */
   {
     Landing: {
       screen: LandingScreen
@@ -20,6 +21,7 @@ const Router = createStackNavigator(
     Login: {
       screen: LoginScreen
     },
+    /* Components for bottom tab navigation bar */
     Home: {
       screen: createBottomTabNavigator(
         {
@@ -36,6 +38,7 @@ const Router = createStackNavigator(
           },
         },
         {
+          /* Logic for switching between screens in bottom tab bar is bellow */
           navigationOptions: ({ navigation }) => ({
             tabBarIcon: () => {
               const { routeName } = navigation.state;
@@ -61,7 +64,7 @@ const Router = createStackNavigator(
               }
             }
           }),
-
+       /* Bottom tab bar config is bellow */
           tabBarOptions: {
             showIcon: true,
             showLabel: true,
@@ -83,7 +86,7 @@ const Router = createStackNavigator(
   },
   {
     initialRouteName: 'Landing',
-       /* The header config from HomeScreen is bellow */
+       /* The header config for HomeScreen is bellow */
        defaultNavigationOptions: {
         title: 'LifeCoaches App',
         headerStyle: {
