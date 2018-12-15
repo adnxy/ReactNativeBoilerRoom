@@ -9,7 +9,24 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
-
+#if RCT_DEV
+#import <React/RCTDevLoadingView.h>
+#endif
+...
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+  ...
+  RCTBridge *bridge = [[RCTBridge alloc] initWithBundleURL:jsCodeLocation
+                                            moduleProvider:nil
+                                             launchOptions:launchOptions];
+#if RCT_DEV
+  [bridge moduleForClass:[RCTDevLoadingView class]];
+#endif
+  RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
+                                                   moduleName:@"Test"
+                                            initialProperties:nil];
+  ...
+}
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

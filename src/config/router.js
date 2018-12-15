@@ -9,8 +9,8 @@ import LoginScreen from '../features/login/LoginScreen';
 import AddScreen from '../features/add-content/AddScreen';
 import FeedScreen from '../features/feed/FeedScreen';
 import Profile from '../features/profile/ProfileScreen';
-import { COLOR_NAVIGATION_BLUE } from '../assets/colors/colors';
-import { FONT_AVENIR_MEDIUM, COLOR_NAVIGATION_GRAY } from '../assets/fonts/fonts';
+import { COLOR_NAVIGATION_BLUE, COLOR_NAVIGATION_GRAY } from '../assets/colors/colors';
+import { FONT_AVENIR_MEDIUM } from '../assets/fonts/fonts';
 
 const Router = createStackNavigator(
   {
