@@ -10,7 +10,7 @@ export default class LandingScreen extends React.Component {
           onPress={() => this.props.navigation.navigate('Login')}
           title="Navigate To Login"
           color="#841584"
-        >Navigate To Login</Button>
+        >Login</Button>
       </View>
     );
   }

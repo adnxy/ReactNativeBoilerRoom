@@ -1,15 +1,16 @@
 import React from 'react';
+import { Image } from 'react-native';
 import { createStackNavigator, 
   createAppContainer, 
   createBottomTabNavigator } from 'react-navigation';
-import { Image } from 'react-native';
 
 import LandingScreen from '../features/landing/LandingScreen';
 import LoginScreen from '../features/login/LoginScreen';
 import AddScreen from '../features/add-content/AddScreen';
 import FeedScreen from '../features/feed/FeedScreen';
 import Profile from '../features/profile/ProfileScreen';
-
+import { COLOR_NAVIGATION_BLUE } from '../assets/colors/colors';
+import { FONT_AVENIR_MEDIUM, COLOR_NAVIGATION_GRAY } from '../assets/fonts/fonts';
 
 const Router = createStackNavigator(
   {
@@ -40,13 +41,13 @@ const Router = createStackNavigator(
               const { routeName } = navigation.state;
               let icon;
               switch (routeName) {
+                case 'Feed':
+                icon = require('../assets/img/navigation_home_icon.png');
+                return (
+                  <Image source={icon} style={{ width: 40, height: 40 }} />
+                );
                 case 'Add':
                   icon = require('../assets/img/navigation_add_icon.png');
-                  return (
-                    <Image source={icon} style={{ width: 40, height: 40 }} />
-                  );
-                  case 'Feed':
-                  icon = require('../assets/img/navigation_home_icon.png');
                   return (
                     <Image source={icon} style={{ width: 40, height: 40 }} />
                   );
@@ -63,10 +64,11 @@ const Router = createStackNavigator(
 
           tabBarOptions: {
             showIcon: true,
-            showLabel: false,
+            showLabel: true,
             style: {
-              backgroundColor: 'white',
-              shadowColor: 'gray',
+              backgroundColor: COLOR_NAVIGATION_GRAY,
+              fontFamily: FONT_AVENIR_MEDIUM,
+              fontSize: 18,
             },
             iconStyle: {
               width: 47,
@@ -74,17 +76,27 @@ const Router = createStackNavigator(
             }
           },
           tabBarPosition: 'bottom',
-          swipeEnabled: false
+          swipeEnabled: true
         }
       )
     }
   },
   {
-    navigationOptions: {
-      gesturesEnabled: false,
-    },
-    initialRouteName: 'Home'
-  }
+    initialRouteName: 'Landing',
+       /* The header config from HomeScreen is bellow */
+       defaultNavigationOptions: {
+        title: 'LifeCoaches App',
+        headerStyle: {
+          backgroundColor: COLOR_NAVIGATION_BLUE,
+        },
+        headerTintColor: 'white',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+          fontFamily: FONT_AVENIR_MEDIUM,
+          fontSize: 18,
+        },
+      },
+    }
 );
 
 export default createAppContainer(Router);

@@ -1,11 +1,16 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
 export default class LoginScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
         <Text>Login Screen</Text>
+        <Button
+          onPress={() => this.props.navigation.navigate('Home')}
+          title="Open Feed"
+          color="#841584"
+        >Login</Button>
       </View>
     );
   }
