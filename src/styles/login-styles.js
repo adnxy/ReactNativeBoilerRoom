@@ -47,6 +47,14 @@ export default StyleSheet.create({
         height: 200,
         marginBottom: 115,
       },
+
+      errorMessage: {
+        fontFamily: FONT_AVENIR_BOOK,
+        color: 'red',
+        fontSize: 14,
+        position: 'relative',
+        bottom: '16%'
+      },
     
       textInputStyle: {
         borderBottomColor: COLOR_NAVIGATION_GRAY, 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, Text } from 'react-native';
 
-//Bellow is TextButton components used for login/registration buttons
+//Simple TextButton components used for login/registration buttons
 const TextButton = (props) => {
   return (
     <TouchableOpacity

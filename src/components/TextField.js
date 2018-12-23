@@ -15,6 +15,7 @@ const TextField = (props) => {
       secureTextEntry={props.secureTextEntry}
       onSubmitEditing={props.onSubmitEditing}
       placeholder={props.placeholder}
+      returnKeyType={props.returnKeyType}
     />
     </View>
   );
