@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, KeyboardAvoidingView } from 'react-native';
+
 import TextButton from '../../components/TextButton';
 import TextField from '../../components/TextField';
 import styles from '../../styles/login-styles';
@@ -24,6 +25,7 @@ export default class LoginScreen extends React.Component {
     } else if (password.length <= 5) {
       this.setErrorMessage('Please enter at least 5 characters');
     } else {
+      this.setErrorMessage('');
       this.props.navigation.navigate('Home');
     }
   }
@@ -35,6 +37,7 @@ export default class LoginScreen extends React.Component {
   render() {
     const { errorMessage } = this.state;
     return (
+      <KeyboardAvoidingView style={styles.container} behavior="padding">
       <View style={styles.container}>
         <TextField 
          text="email/username"
@@ -74,6 +77,7 @@ export default class LoginScreen extends React.Component {
           titleStyle={styles.buttonTitle}
           />
           </View>
+          </KeyboardAvoidingView>
     );
   }
 }

@@ -28,6 +28,7 @@ export default StyleSheet.create({
         alignItems: 'center',
         borderRadius: 8,
         marginTop: 12,
+        marginBottom: 10,
       },
     
       buttonTitle: {
@@ -37,15 +38,15 @@ export default StyleSheet.create({
       },
 
       containerInputEmail: {
-        flex: 1,
-        height: 200,
-        marginTop: 324,
+        height: 250,
+        position: 'relative',
+        top: 350,
       },
 
       containerInputPassword: {
-        flex: 1,
-        height: 200,
-        marginBottom: 115,
+        height: 250,
+        position: 'relative',
+        top: 150,
       },
 
       errorMessage: {
@@ -69,5 +70,9 @@ export default StyleSheet.create({
         fontFamily: FONT_AVENIR_BOOK,
         color: COLOR_NAVIGATION_BLUE,
         marginTop: 5,
+      },
+
+      keyboardContainer: {
+        flex: 1,
       }
 });
