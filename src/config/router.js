@@ -83,7 +83,7 @@ const Router = createStackNavigator(
     }
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'Landing',
        /* The header config for HomeScreen is bellow */
        defaultNavigationOptions: {
         title: 'LifeCoaches App',

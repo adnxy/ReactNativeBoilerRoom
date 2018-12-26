@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { View, Text, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getFeed } from './actions';
-
+import styles from '../../styles/feed-styles';
 
 class FeedScreen extends Component {
   constructor(props) {
@@ -16,18 +16,19 @@ class FeedScreen extends Component {
     this.props.actions.getFeed('adnxy');
   }
 
+  //Need to create seperate component to handle each list item rendering
   renderItem = ({ item }) => (
     <View style={styles.item}>
       <Text>{item.name}</Text>
     </View>
   );
+
   render() {
-    const { repos } = this.props;
-    console.log('propovi', this.props);
+    const { feed } = this.props;
     return (
       <FlatList
         styles={styles.container}
-        data={repos}
+        data={feed}
         renderItem={this.renderItem}
         keyExtractor={(item, index) => index.toString()}
       />
@@ -35,18 +36,7 @@ class FeedScreen extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  item: {
-    padding: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc'
-  }
-});
 const mapStateToProps = state => {
-  console.log('stejt', state.feed.results);
   return {
     feed: state.feed.results
   };
