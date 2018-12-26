@@ -54,7 +54,7 @@ export default StyleSheet.create({
         color: 'red',
         fontSize: 14,
         position: 'relative',
-        bottom: '16%'
+        bottom: '11%'
       },
     
       textInputStyle: {

@@ -25,14 +25,12 @@ const Router = createStackNavigator(
     Home: {
       screen: createBottomTabNavigator(
         {
-          Add: {
-            screen: AddScreen
-          },
-
           Feed: {
             screen: FeedScreen
           },
-
+          Add: {
+            screen: AddScreen
+          },
           Profile: {
             screen: Profile
           },
@@ -85,7 +83,7 @@ const Router = createStackNavigator(
     }
   },
   {
-    initialRouteName: 'Landing',
+    initialRouteName: 'Home',
        /* The header config for HomeScreen is bellow */
        defaultNavigationOptions: {
         title: 'LifeCoaches App',

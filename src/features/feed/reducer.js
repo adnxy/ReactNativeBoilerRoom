@@ -12,7 +12,7 @@ export default function reducer(state = INITIAL_STATE, action) {
     case types.GET_FEED_SUCCESS:
       return { ...state, loading: false, results: action.payload };
     case types.GET_FEED_FAIL:
-      return { ...state, loading: false, error: 'Error while fetching flowers' };
+      return { ...state, loading: false, error: 'Error while fetching feed' };
     default:
       return state;
   }
